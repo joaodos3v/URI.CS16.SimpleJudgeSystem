@@ -1,0 +1,30 @@
+/* Tornando o footer da página inicial (dahboard) fixo */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+ }
+
+ /* Tornando a barra de navegação à esquerda fixa */
+ .left-sidebar-fix {
+    height: 100%; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    left: 0;
+ }
+
+ /* Estilo inicial para o editor de códigos da página de envio */
+ #editor {
+    min-width: 500px;
+    min-height: 400px;
+}
+
+
+/* D E B U G */
+.destacar {
+    border: 1px solid black;
+    background-color: gray;
+}
