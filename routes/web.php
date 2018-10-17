@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/',             ['as' => 'dashboard', 		'uses' => 'DashboardController@index']);
+
+Route::group(['prefix' => 'dashboard'], function() {
+    Route::get('',          ['as' => 'dashboard', 		'uses' => 'DashboardController@index']);
+});
+
 
 Route::get('/enviar', function () {
     return view('enviar');

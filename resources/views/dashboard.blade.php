@@ -8,14 +8,14 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-block">
-                    <h4 class="card-title">Daily Sales</h4>
+                    <h4 class="card-title">(<span style="font-weight: bold; font-size: 18px;">{{ $linguagemMaisUtilizadaTotal->nome or 'Sem submissões' }}</span>) Linguagem mais utilizada - <i>Total</i> </h4>
                     <div class="text-right">
-                        <h2 class="font-light m-b-0"><i class="ti-arrow-up text-success"></i> $120</h2>
-                        <span class="text-muted">Todays Income</span>
+                        <h2 class="font-light m-b-0"><i class="ti-arrow-up text-success"></i> {{ $submissoesTotais }}</h2>
+                        <span class="text-muted">Total de Submissões</span>
                     </div>
-                    <span class="text-success">80%</span>
+                    <span class="text-success">{{ $porcentagemSubmissoesTotal }}%</span>
                     <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 80%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-success" role="progressbar" style="width: {{ $porcentagemSubmissoesTotal }}%; height: 6px;" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
             </div>
@@ -25,14 +25,14 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-block">
-                    <h4 class="card-title">Weekly Sales</h4>
+                <h4 class="card-title">(<span style="font-weight: bold; font-size: 18px;">{{ $linguagemMaisUtilizadaHoje->nome or 'Sem submissões' }}</span>) Linguagem mais utilizada - <i>Hoje</i></h4>
                     <div class="text-right">
-                        <h2 class="font-light m-b-0"><i class="ti-arrow-up text-info"></i> $5,000</h2>
-                        <span class="text-muted">Todays Income</span>
+                        <h2 class="font-light m-b-0"><i class="ti-arrow-up text-info"></i> {{ $submissoesCriadasHoje }}</h2>
+                        <span class="text-muted">Submissões de Hoje</span>
                     </div>
-                    <span class="text-info">30%</span>
+                    <span class="text-info">{{ $porcentagemSubmissoesHoje }}%</span>
                     <div class="progress">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: 30%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-info" role="progressbar" style="width: {{ $porcentagemSubmissoesHoje }}%; height: 6px;" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
             </div>
