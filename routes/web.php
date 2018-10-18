@@ -13,6 +13,9 @@
 
 Route::get('/',             ['as' => 'dashboard', 		'uses' => 'DashboardController@index']);
 
+// Ajax 
+Route::get('dashboard/system-data', 'AjaxController@getSystemData');
+
 Route::group(['prefix' => 'dashboard'], function() {
     Route::get('',          ['as' => 'dashboard', 		'uses' => 'DashboardController@index']);
 });
