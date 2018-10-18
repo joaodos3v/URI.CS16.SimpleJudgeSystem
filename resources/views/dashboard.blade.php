@@ -46,10 +46,8 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-block">
-                    <h4 class="card-title">Revenue Statistics</h4>
-                    <div class="flot-chart">
-                        <div class="flot-chart-content" id="flot-line-chart"></div>
-                    </div>
+                    <h4 class="card-title">Estatísticas das Submissões nos Últimos 10 Dias - Por Status</h4>
+                    <div id="placeholder" style="min-width:600px; min-height:300px"></div>
                 </div>
             </div>
         </div>

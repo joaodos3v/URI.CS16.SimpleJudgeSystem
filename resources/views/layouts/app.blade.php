@@ -179,8 +179,9 @@
     <!-- ============================================================== -->
     <!-- Flot Charts JavaScript -->
     <script src="{{ asset('js/plugins/flot/jquery.flot.js') }}"></script>
+    <script src="{{ asset('js/plugins/flot/jquery.flot.time.js') }}"></script>
     <script src="{{ asset('js/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
-    <script src="{{ asset('js/flot-data.js') }}"></script>
+    <script src="{{ asset('js/flot-data-custom.js') }}"></script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
