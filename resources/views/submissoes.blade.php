@@ -9,9 +9,6 @@
                 <li class="breadcrumb-item active">Submissões</li>
             </ol>
         </div>
-        <div class="col-md-6 col-4 align-self-center">
-            <a href="https://wrappixel.com/templates/monsteradmin/" class="btn pull-right hidden-sm-down btn-success"> Upgrade to Pro</a>
-        </div>
     </div>
 @endsection
 
@@ -20,7 +17,32 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-block">
-                    This is some text within a card block.
+                    
+                    <h4 class="card-title">Submissões Enviadas</h4>
+                    <h6 class="card-subtitle">Todas as submissões já realizadas podem ser encontradas na tabela abaixo.</h6>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Resposta</th>
+                                    <th class="text-center">Linguagem Utilizada</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($submissoes as $submissao)
+                                    <tr>
+                                        <td> {{ $submissao->id }} </td>
+                                        <td class="text-center"> {{ $submissao->status }} </td>
+                                        <td class="text-center"> {{ $submissao->resposta }} </td>
+                                        <td class="text-center"> {{ $submissao->linguagem->nome }} </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>
