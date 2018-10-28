@@ -16,7 +16,7 @@ class CreateSubmissaoTable extends Migration
         Schema::create('submissao', function (Blueprint $table) {
             $table->increments('id');
             $table->string('status', 50);
-            $table->string('resposta', 200);
+            $table->string('resposta', 200)->nullable();
             $table->integer('linguagem_id')->unsigned();
             $table->foreign('linguagem_id')->references('id')->on('linguagem');
             $table->timestamps();

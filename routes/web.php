@@ -16,6 +16,7 @@ Route::get('/',             ['as' => 'dashboard', 		'uses' => 'DashboardControll
 // Ajax 
 Route::get('dashboard/system-data',         'AjaxController@getSystemData');
 Route::get('enviar/{id}/get-language',      'AjaxController@getLanguage');
+Route::post('enviar/codigo',                'AjaxController@submit');
 
 // Dashboard
 Route::group(['prefix' => 'dashboard'], function() {

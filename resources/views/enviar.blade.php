@@ -21,6 +21,9 @@
 
 @section('content')
     <div class="row">
+
+        <!--SweetAlert 2 -->
+        <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
         
         <div class="col-12">
             <div class="card">
@@ -189,7 +192,7 @@
                     <div class="col-5 pull-right">
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <button class="btn btn-lg btn-success">Enviar Código</button>
+                                <button class="btn btn-lg btn-success" id="btn-submit-code">Enviar Código</button>
                             </div>
                         </div>
                     </div>
@@ -236,9 +239,50 @@
 
     // < Modes >
     refreshEditor( $("#linguagem").val() );
+
     $(document).on('change', '#linguagem', function(e){
         refreshEditor( $("#linguagem").val() );
     });
+</script>
+
+<!-- Click para submeter o código escrito -->
+<script>
+$("#btn-submit-code").click(function(){
+    swal({
+        title: 'Submeter código?',
+        text: "Certifique-se de ter revisado e não ter deixado freopen no arquivo! =)",
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, submeter!',
+        cancelButtonText: 'Cancelar',
+        allowOutsideClick: false
+    }).then((result) => {
+        if (result.value) {
+            var codigo = editor.getValue();
+            var obj = {'codigo': codigo, 'linguagem_id': $("#linguagem").val(), "_token": "{{ csrf_token() }}"};
+            $.ajax({
+                url: window.location.href + "/codigo",
+                type: 'POST',
+                data: obj,
+                dataType: 'JSON',
+                success: function(response){
+                    swal({
+                        title: 'Submetido!',
+                        text: 'Verifique a solução que acabou de ser enviada no menu submissões.',
+                        type: 'success',
+                        allowOutsideClick: false
+                    }).then((result) => {
+                        if (result.value) {
+                            document.location.href = "{{ URL::route('submissoes') }}";
+                        }
+                    });
+                }
+            });
+        }
+    })
+});
 </script>
 
 @endsection()

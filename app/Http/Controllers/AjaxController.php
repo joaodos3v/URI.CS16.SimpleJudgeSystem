@@ -36,4 +36,33 @@ class AjaxController extends Controller
         return response()->json(['response' => $linguagem]);
     }
 
+
+    public function submit(Request $_request) { 
+        $this->checkDirectory();
+
+        $submissao = new Submissao();
+        $submissao->status = "Processando...";
+        $submissao->linguagem_id = $_request->get('linguagem_id');
+        $submissao->save();
+
+        $this->createFile( $_request->codigo, $submissao->id );
+        return response()->json(['response' => 'success']);
+    }
+
+
+    private function checkDirectory() {
+        $pathDirectory = "/opt/simplejudgesystem/";
+        
+        if( !file_exists($pathDirectory) ) {
+            mkdir( $pathDirectory );
+        }
+    }
+
+
+    private function createFile( $_content, $_filename ) {
+        $fp = fopen( "/opt/simplejudgesystem/" . $_filename . ".txt", "wb");
+        fwrite($fp, $_content);
+        fclose($fp);
+    }
+
 }
