@@ -14,17 +14,20 @@
 Route::get('/',             ['as' => 'dashboard', 		'uses' => 'DashboardController@index']);
 
 // Ajax 
-Route::get('dashboard/system-data', 'AjaxController@getSystemData');
+Route::get('dashboard/system-data',         'AjaxController@getSystemData');
+Route::get('enviar/{id}/get-language',      'AjaxController@getLanguage');
 
+// Dashboard
 Route::group(['prefix' => 'dashboard'], function() {
     Route::get('',          ['as' => 'dashboard', 		'uses' => 'DashboardController@index']);
 });
 
+// Enviar
+Route::group(['prefix' => 'enviar'], function() {
+    Route::get('',          ['as' => 'enviar', 		'uses' => 'EnviarController@index']);
+});
 
-Route::get('/enviar', function () {
-    return view('enviar');
-})->name('enviar');
-
-Route::get('/submissoes', function () {
-    return view('submissoes');
-})->name('submissoes');
+// Submissões
+Route::group(['prefix' => 'submissoes'], function() {
+    Route::get('',          ['as' => 'submissoes', 		'uses' => 'SubmissoesController@index']);
+});

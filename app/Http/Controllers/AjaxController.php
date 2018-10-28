@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Submissao;
+use App\Linguagem;
 
 class AjaxController extends Controller
 {
@@ -27,6 +28,12 @@ class AjaxController extends Controller
         $arrRetorno["incorretas"]   = array_count_values($incorretas);
 
         return response()->json(['response' => $arrRetorno]);
+    }
+
+
+    public function getLanguage($_id) {
+        $linguagem = Linguagem::find($_id);
+        return response()->json(['response' => $linguagem]);
     }
 
 }

@@ -169,12 +169,10 @@
                     <div class="col-md-6">
                         <label class="col-md-12">Linguagem:</label>
                         <div class="col-md-12">
-                            <select class="form-control form-control-line">
-                                <option>London</option>
-                                <option>India</option>
-                                <option>Usa</option>
-                                <option>Canada</option>
-                                <option>Thailand</option>
+                            <select class="form-control form-control-line" name="linguagem" id="linguagem">
+                                @foreach($linguagens as $linguagem)
+                                    <option value="{{ $linguagem->id }}"> {{ $linguagem->nome }} </option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -205,11 +203,18 @@
 <!-- ============================================================== -->
 <!-- Scripts para esta página -->
 <!-- ============================================================== -->
+
 <!-- jQuery -->
 <script src="{{ asset('js/plugins/jquery/jquery.min.js') }}"></script>
+
 <!-- ACE Editor -->
 <script src="{{ asset('js/plugins/ace-editor/src-min/ace.js') }}" type="text/javascript" charset="utf-8"></script>
-<script src="{{ asset('js/plugins/ace-editor/src-min/mode-php.js') }}" type="text/javascript" charset="utf-8"></script>
+
+<script src="{{ asset('js/plugins/ace-editor/src-min/mode-c_cpp.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ asset('js/plugins/ace-editor/src-min/mode-kotlin.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ asset('js/plugins/ace-editor/src-min/mode-java.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ asset('js/functions.js') }}"></script>
+
 
 <!-- Toda vez que a tab de problema for "alterada", altera-se também o valor do input de 'solução para' -->
 <script type="text/javascript">
@@ -230,15 +235,10 @@
     document.getElementById('editor').style.fontSize='14px';
 
     // < Modes >
-    /*
-    var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
-    editor.session.setMode(new JavaScriptMode());
-    */
-    var PHPMode = ace.require("ace/mode/php").Mode;
-    editor.session.setMode(new PHPMode());
-    editor.insert("<" + "?" + "php \n");
-    editor.insert("\t// Esta é a forma mais simples de exibir o conteúdo em PHP \n \techo \"Olá Mundo\"; \n");
-    editor.insert("?>");
+    refreshEditor( $("#linguagem").val() );
+    $(document).on('change', '#linguagem', function(e){
+        refreshEditor( $("#linguagem").val() );
+    });
 </script>
 
 @endsection()
