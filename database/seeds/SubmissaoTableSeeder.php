@@ -21,6 +21,7 @@ class SubmissaoTableSeeder extends Seeder
         $correta1->status = "Correta";
         $correta1->resposta = "Solução correta.";
         $correta1->linguagem_id = 1;
+        $correta1->problema_id = 1;
         $correta1->created_at = Carbon::now()->subDays(3);
         $correta1->save();
         
@@ -28,6 +29,7 @@ class SubmissaoTableSeeder extends Seeder
         $correta2->status = "Correta";
         $correta2->resposta = "Solução correta.";
         $correta2->linguagem_id = 2;
+        $correta2->problema_id = 2;
         $correta2->created_at = Carbon::now()->subDays(1);
         $correta2->save();
         
@@ -35,6 +37,7 @@ class SubmissaoTableSeeder extends Seeder
         $correta3->status = "Correta";
         $correta3->resposta = "Solução correta.";
         $correta3->linguagem_id = 3;
+        $correta3->problema_id = 3;
         $correta3->created_at = Carbon::now()->subDays(1);
         $correta3->save();
         
@@ -42,6 +45,7 @@ class SubmissaoTableSeeder extends Seeder
         $correta4->status = "Correta";
         $correta4->resposta = "Solução correta.";
         $correta4->linguagem_id = 3;
+        $correta4->problema_id = 3;
         $correta4->created_at = Carbon::now()->subDays(1);
         $correta4->save();
         
@@ -52,6 +56,7 @@ class SubmissaoTableSeeder extends Seeder
         $erroExecucao1->status = "Erro de execução";
         $erroExecucao1->resposta = "Solução apresentou problemas ao ser compilada. Verifique sua sintaxe!";
         $erroExecucao1->linguagem_id = 1;
+        $erroExecucao1->problema_id = 1;
         $erroExecucao1->created_at = Carbon::now()->subDays(2);
         $erroExecucao1->save();
         
@@ -59,13 +64,15 @@ class SubmissaoTableSeeder extends Seeder
         $erroExecucao2->status = "Erro de execução";
         $erroExecucao2->resposta = "Solução apresentou problemas ao ser compilada. Verifique sua sintaxe!";
         $erroExecucao2->linguagem_id = 2;
+        $erroExecucao2->problema_id = 2;
         $erroExecucao2->created_at = Carbon::now()->subDays(1);
         $erroExecucao2->save();
         
         $erroExecucao3 = new Submissao();
-        $erroExecucao3->status = "Erro de execução";
+        $erroExecucao3->status = "Erro de compilação";
         $erroExecucao3->resposta = "Solução apresentou problemas ao ser compilada. Verifique sua sintaxe!";
         $erroExecucao3->linguagem_id = 3;
+        $erroExecucao3->problema_id = 3;
         $erroExecucao3->created_at = Carbon::now()->subDays(1);
         $erroExecucao3->save();
 
@@ -76,6 +83,7 @@ class SubmissaoTableSeeder extends Seeder
         $incorreta1->status = "Incorreta";
         $incorreta1->resposta = "Sua sintaxe está correta. Porém, a solução não apresentou os resultados esperados.";
         $incorreta1->linguagem_id = 1;
+        $incorreta1->problema_id = 1;
         $incorreta1->created_at = Carbon::now()->subDays(2);
         $incorreta1->save();
         
@@ -83,6 +91,7 @@ class SubmissaoTableSeeder extends Seeder
         $incorreta2->status = "Incorreta";
         $incorreta2->resposta = "Sua sintaxe está correta. Porém, a solução não apresentou os resultados esperados.";
         $incorreta2->linguagem_id = 2;
+        $incorreta2->problema_id = 2;
         $incorreta2->created_at = Carbon::now()->subDays(2);
         $incorreta2->save();
         
@@ -90,6 +99,7 @@ class SubmissaoTableSeeder extends Seeder
         $incorreta3->status = "Incorreta";
         $incorreta3->resposta = "Sua sintaxe está correta. Porém, a solução não apresentou os resultados esperados.";
         $incorreta3->linguagem_id = 3;
+        $incorreta3->problema_id = 3;
         $incorreta3->created_at = Carbon::now()->subDays(1);
         $incorreta3->save();
 

@@ -166,7 +166,7 @@
                     <div class="col-md-6">
                         <label class="col-md-12">Solução para:</label>
                         <div class="col-md-12">
-                            <input type="text" id="input-solution-to" placeholder="Problema 1" class="form-control form-control-line" readonly>
+                            <input type="text" id="input-solution-to" placeholder="Problema 1" text="Problema 1" class="form-control form-control-line" readonly>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -223,6 +223,7 @@
 <script type="text/javascript">
     $(document).on('click', 'a[data-toggle="tab"]', function(e){
         $("#input-solution-to").val(e.target.text);
+        $("#input-solution-to")[0].placeholder = e.target.text;
     });
 </script>
 
@@ -248,6 +249,7 @@
 <!-- Click para submeter o código escrito -->
 <script>
 $("#btn-submit-code").click(function(){
+    var problema_id = $("#input-solution-to")[0].placeholder.split('Problema ')[1];
     swal({
         title: 'Submeter código?',
         text: "Certifique-se de ter revisado e não ter deixado freopen no arquivo! =)",
@@ -261,7 +263,7 @@ $("#btn-submit-code").click(function(){
     }).then((result) => {
         if (result.value) {
             var codigo = editor.getValue();
-            var obj = {'codigo': codigo, 'linguagem_id': $("#linguagem").val(), "_token": "{{ csrf_token() }}"};
+            var obj = {'codigo': codigo, 'linguagem_id': $("#linguagem").val(), 'problema_id': problema_id, "_token": "{{ csrf_token() }}"};
             $.ajax({
                 url: window.location.href + "/codigo",
                 type: 'POST',

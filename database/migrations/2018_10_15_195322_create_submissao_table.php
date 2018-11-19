@@ -19,6 +19,7 @@ class CreateSubmissaoTable extends Migration
             $table->string('resposta', 200)->nullable();
             $table->integer('linguagem_id')->unsigned();
             $table->foreign('linguagem_id')->references('id')->on('linguagem');
+            $table->integer('problema_id')->unsigned();
             $table->timestamps();
         });
     }

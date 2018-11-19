@@ -39,10 +39,11 @@ class AjaxController extends Controller
 
     public function submit(Request $_request) { 
         $this->checkDirectory();
-
+        
         $submissao = new Submissao();
         $submissao->status = "Processando...";
         $submissao->linguagem_id = $_request->get('linguagem_id');
+        $submissao->problema_id  = $_request->get('problema_id');
         $submissao->save();
 
         $this->createFile( $_request->codigo, $submissao->id );
