@@ -34,7 +34,7 @@
                                 @foreach($submissoes as $submissao)
                                     <tr>
                                         <td> {{ $submissao->id }} </td>
-                                        <td class="text-center"> {{ $submissao->status }} </td>
+                                        <td class="text-center"> {{ ($submissao->status == "Erro de compilacao") ? "Erro de compilação" : $submissao->status }} </td>
                                         <td class="text-center"> {{ $submissao->resposta }} </td>
                                         <td class="text-center"> {{ $submissao->linguagem->nome }} </td>
                                     </tr>

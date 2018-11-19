@@ -15,8 +15,8 @@ function getSystemData() {
                 var arr1 = [parseInt(new Date(key).getTime()), data.corretas[key]];
                 dadosSubmissoesCorretas.push(arr1);
             }
-            for (var key in data.erroExecucao) {
-                var arr2 = [parseInt(new Date(key).getTime()), data.erroExecucao[key]];
+            for (var key in data.erroCompilacao) {
+                var arr2 = [parseInt(new Date(key).getTime()), data.erroCompilacao[key]];
                 dadosSubmissoesErroDeExecucao.push(arr2);
             }
             for (var key in data.incorretas) {
@@ -59,7 +59,7 @@ function getSystemData() {
                     data: dadosSubmissoesCorretas 
                 },
                 { 
-                    label: "Erro de Execução", 
+                    label: "Erro de compilação", 
                     data: dadosSubmissoesErroDeExecucao
                 },
                 { 

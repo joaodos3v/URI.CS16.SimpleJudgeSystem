@@ -50,10 +50,10 @@ class SubmissaoTableSeeder extends Seeder
         $correta4->save();
         
         /**
-         * Submissões com Erro de execução
+         * Submissões com Erro de compilação
          */
         $erroExecucao1 = new Submissao();
-        $erroExecucao1->status = "Erro de execução";
+        $erroExecucao1->status = "Erro de compilacao";
         $erroExecucao1->resposta = "Solução apresentou problemas ao ser compilada. Verifique sua sintaxe!";
         $erroExecucao1->linguagem_id = 1;
         $erroExecucao1->problema_id = 1;
@@ -61,7 +61,7 @@ class SubmissaoTableSeeder extends Seeder
         $erroExecucao1->save();
         
         $erroExecucao2 = new Submissao();
-        $erroExecucao2->status = "Erro de execução";
+        $erroExecucao2->status = "Erro de compilacao";
         $erroExecucao2->resposta = "Solução apresentou problemas ao ser compilada. Verifique sua sintaxe!";
         $erroExecucao2->linguagem_id = 2;
         $erroExecucao2->problema_id = 2;
@@ -69,7 +69,7 @@ class SubmissaoTableSeeder extends Seeder
         $erroExecucao2->save();
         
         $erroExecucao3 = new Submissao();
-        $erroExecucao3->status = "Erro de compilação";
+        $erroExecucao3->status = "Erro de compilacao";
         $erroExecucao3->resposta = "Solução apresentou problemas ao ser compilada. Verifique sua sintaxe!";
         $erroExecucao3->linguagem_id = 3;
         $erroExecucao3->problema_id = 3;
