@@ -61,7 +61,7 @@ class AjaxController extends Controller
 
 
     private function createFile( $_content, $_filename ) {
-        $fp = fopen( "/opt/simplejudgesystem/" . $_filename . ".txt", "wb");
+        $fp = fopen( "/opt/simplejudgesystem/file" . $_filename . ".txt", "wb");
         fwrite($fp, $_content);
         fclose($fp);
     }
