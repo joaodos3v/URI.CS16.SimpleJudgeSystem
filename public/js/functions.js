@@ -14,9 +14,9 @@ function renderLanguageTemplate(linguagem) {
     var newTemplate = linguagem.template.replace(/<br>/g, '\n');
 
     switch (linguagem.nome) {
-        case "Kotlin":
-            var KotlinMode = ace.require("ace/mode/kotlin").Mode;
-            editor.session.setMode(new KotlinMode());
+        case "Python":
+            var PythonMode = ace.require("ace/mode/python").Mode;
+            editor.session.setMode(new PythonMode());
             editor.insert(newTemplate);
 
             break;

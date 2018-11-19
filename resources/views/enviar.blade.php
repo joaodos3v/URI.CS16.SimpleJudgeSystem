@@ -214,7 +214,7 @@
 <script src="{{ asset('js/plugins/ace-editor/src-min/ace.js') }}" type="text/javascript" charset="utf-8"></script>
 
 <script src="{{ asset('js/plugins/ace-editor/src-min/mode-c_cpp.js') }}" type="text/javascript" charset="utf-8"></script>
-<script src="{{ asset('js/plugins/ace-editor/src-min/mode-kotlin.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ asset('js/plugins/ace-editor/src-min/mode-python.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ asset('js/plugins/ace-editor/src-min/mode-java.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ asset('js/functions.js') }}"></script>
 
