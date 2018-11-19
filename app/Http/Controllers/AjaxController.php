@@ -46,7 +46,9 @@ class AjaxController extends Controller
         $submissao->problema_id  = $_request->get('problema_id');
         $submissao->save();
 
-        $this->createFile( $_request->codigo, $submissao->id );
+        $linguagem = Linguagem::find($_request->get('linguagem_id'));
+
+        $this->createFile( $_request->codigo, $submissao->id, $linguagem->extensao );
         return response()->json(['response' => 'success']);
     }
 
@@ -60,8 +62,8 @@ class AjaxController extends Controller
     }
 
 
-    private function createFile( $_content, $_filename ) {
-        $fp = fopen( "/opt/simplejudgesystem/file" . $_filename . ".txt", "wb");
+    private function createFile( $_content, $_filename, $_ext ) {
+        $fp = fopen( "/opt/simplejudgesystem/file" . $_filename . "." . $_ext, "wb");
         fwrite($fp, $_content);
         fclose($fp);
     }
