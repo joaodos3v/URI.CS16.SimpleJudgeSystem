@@ -59,6 +59,6 @@
 
 @section('footer')
     <footer class="footer text-center">
-        <b>© 2018</b> | <b>Made by:</b> @KelwinKomka - @joao-vieira - @VinãoSemGithub
+        <b>© 2018</b> | <b>Made by:</b> @KelwinKomka / @joao-vieira / @viniciusandd
     </footer>
 @endsection
